@@ -8,7 +8,7 @@ export class GameController implements ContaRepository {
 
     procurarPorNome(nome: string): void {
         let buscaGame = this.buscarNoSet(nome);
-        if (buscaGame) {
+        if (buscaGame != null) {
             console.log("\nJogo encontrado:\n");
             buscaGame.visualizar();
         } else {
@@ -27,11 +27,24 @@ export class GameController implements ContaRepository {
         this.listarGame.add(jogo);
         console.log(`\nJogo ${jogo.nome} cadastrado com sucesso!\n`);
     }
+
     atualizar(jogo: Game): void {
-        throw new Error("Method not implemented.");
+        let buscaGame = this.buscarNoSet(jogo.nome);
+        if(buscaGame != null){
+            this.listarGame.delete(buscaGame);
+            this.listarGame.add(jogo);
+            console.log(`\nJogo ${jogo.nome} atualizado com sucesso!\n`);  
+        }
     }
-    deletar(nome: string): void {
-        throw new Error("Method not implemented.");
+
+    comprar(nome: string): void {
+        let buscaGame = this.buscarNoSet(nome);
+        if(buscaGame != null){
+            this.listarGame.delete(buscaGame);
+            console.log(`\nJogo ${nome} Comprado com sucesso!\n`);
+        } else {
+            console.log(`\nJogo ${nome} não encontrado!\n`);
+        }
     }
 
     buscarNoSet(nome: string): Game | null {

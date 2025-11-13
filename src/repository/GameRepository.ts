@@ -7,7 +7,7 @@ export interface ContaRepository {
 	listarTodas(): void;
 	cadastrar(jogo: Game): void;
 	atualizar(jogo: Game): void;
-	deletar(nome: string): void;
-	
+	comprar(nome: string): void;
+	 
 	
 }

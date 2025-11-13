@@ -3,15 +3,13 @@ export abstract class Game {
     private _nome: string;
     private _genero: string;
     private _tipo: number;
-    private _disponivel: boolean = true;
     private _preco: number;
     
     
-    constructor(nome: string, genero: string, preco: number, tipo: number , disponivel: boolean = true) {
+    constructor(nome: string, genero: string, tipo: number, preco: number ) {
         this._nome = nome;
         this._genero = genero;
         this._tipo = tipo;
-        this._disponivel = disponivel;
         this._preco = preco;
     }
 
@@ -38,14 +36,7 @@ export abstract class Game {
     public set tipo(tipo: number) {
         this._tipo = tipo;
     }
-    
-    public get disponivel(): boolean {
-        return this._disponivel;
-    }
-    
-    public set disponivel(disponivel: boolean) {
-        this._disponivel = disponivel;
-    }
+
 
     public get preco(): number {
         return this._preco;
@@ -71,11 +62,6 @@ export abstract class Game {
                 break;
         }
 
-        if(this._disponivel === true){ 
-            disponivel = "Disponível";
-        } else {
-            disponivel = "Indisponível";
-        }
         
         console.log("\n\n*****************************************************");
         console.log("Dados do Jogo:");
