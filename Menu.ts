@@ -6,12 +6,16 @@ export function main() {
 
 
     let game: GameController = new GameController();
+    
+    let nome, genero: string;
+    let preco, tipo: number;
+    let requisitosMinimos: { so: string; espaco: number; ram: number };
+    const tiposJogos = ["Desktop", "Console"];
 
+    
+    const jogo: JogoDesktop = new JogoDesktop("The Witcher 3", 99.99, 1, "RPG", { so: "Windows 10", espaco: 50, ram: 8 });
+    
     let opcao: number;
-
-    const jogo: JogoDesktop = new JogoDesktop("Battlefield 2042", 199.99, "FPS", { so: "Windows 10", espaco: "50", ram: 16 });
-      jogo.disponivel = true;
-
     while (true) {
 
         console.log("*****************************************************");
@@ -35,7 +39,7 @@ export function main() {
 
         if (opcao == 6) {
             console.log("\nGame-Pede - Seu brechó de jogos!!");
-            break;
+            process.exit(0);
         }
 
         switch (opcao) {
@@ -43,26 +47,76 @@ export function main() {
                 console.log("\n\nListar todos os jogos\n\n");
 
                 game.listarTodas();
+                
+                keyPress();
                 break;
             case 2:
                 console.log("\n\nBuscar dados do jogo por nome\n\n");
+                
+                keyPress();
                 break;
             case 3:
-                console.log("\n\nCadastrar jogo\n\n");
+                console.log("\n\nCriar Conta\n\n");
+
+                console.log("Digite o Nome do Jogo: ");
+                nome = readlinesync.question("");
+
+                console.log("Digite o Gênero do Jogo: ");
+                genero = readlinesync.question("");
+
+                console.log("\nDigite o tipo da Conta: ");
+                tipo = readlinesync.keyInSelect(tiposJogos, "", { cancel: false }) + 1;
+
+                console.log("\nDigite o Preço do Jogo (R$): ");
+                preco = readlinesync.questionFloat("");
+
+                switch (tipo) {
+                    case 1:
+                        console.log("Digite os requisitos mínimos!\n ");
+                        console.log("Sistema Operacional: ");
+                        let so = readlinesync.question("");
+                        console.log("Espaço em Disco (GB): ");
+                        let espaco = readlinesync.questionInt("");
+                        console.log("Memória RAM (GB): ");
+                        let ram = readlinesync.questionInt("");
+                        requisitosMinimos = { so: so, espaco: espaco, ram: ram };
+                        
+                        game.cadastrar(
+                            new JogoDesktop(nome, preco, tipo, genero,
+                                requisitosMinimos));
+                        break;
+                        
+                    case 2:
+                        console.log("Ainda não temos jogos de console cadastrados.");
+                        break;
+                }
+                
+                keyPress();
                 break;
             case 4:
                 console.log("\n\nComprar jogo por nome\n\n");
+                
+                keyPress();
                 break;
             case 5:
                 console.log("\n\nAtualizar dados do jogo\n\n");
+                
+                keyPress();
                 break;
             default:
                 console.log("\nOpção Inválida!\n");
+                
+                keyPress();
                 break;
         }
     }
 
 }
+
+function keyPress(): void {
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
+  }
 
 
 main();

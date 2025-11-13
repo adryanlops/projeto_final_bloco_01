@@ -17,7 +17,8 @@ export class GameController implements ContaRepository {
     }
 
     cadastrar(jogo: Game): void {
-        throw new Error("Method not implemented.");
+        this.listarGame.add(jogo);
+        console.log(`\nJogo ${jogo.nome} cadastrado com sucesso!\n`);
     }
     atualizar(jogo: Game): void {
         throw new Error("Method not implemented.");

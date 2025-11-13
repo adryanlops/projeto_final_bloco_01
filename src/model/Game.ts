@@ -2,15 +2,17 @@ export abstract class Game {
 
     private _nome: string;
     private _genero: string;
+    private _tipo: number;
     private _disponivel: boolean = true;
     private _preco: number;
     
     
-    constructor(nome: string, preco: number, genero: string, disponivel: boolean = true) {
+    constructor(nome: string, genero: string, preco: number, tipo: number , disponivel: boolean = true) {
         this._nome = nome;
         this._genero = genero;
-        this._preco = preco;
+        this._tipo = tipo;
         this._disponivel = disponivel;
+        this._preco = preco;
     }
 
     public get nome(): string {
@@ -20,7 +22,23 @@ export abstract class Game {
     public set nome(nome: string) {
         this._nome = nome;
     }
+    
+    public get genero(): string {
+        return this._genero;
+    }
+    
+    public set genero(genero: string) {
+        this._genero = genero;
+    }
 
+    public get tipo(): number {
+        return this._tipo;
+    }
+    
+    public set tipo(tipo: number) {
+        this._tipo = tipo;
+    }
+    
     public get disponivel(): boolean {
         return this._disponivel;
     }
@@ -29,14 +47,6 @@ export abstract class Game {
         this._disponivel = disponivel;
     }
 
-    public get genero(): string {
-        return this._genero;
-    }
-    
-    public set genero(genero: string) {
-        this._genero = genero;
-    }
-    
     public get preco(): number {
         return this._preco;
     }
@@ -50,6 +60,17 @@ export abstract class Game {
         let genero: string = this._genero;
         let disponivel = "";
 
+        let tipo: string = "";
+
+        switch (this._tipo) {
+            case 1:
+                tipo = "Jogo de Desktop";
+                break;
+            case 2:
+                tipo = "Jogo de Console";
+                break;
+        }
+
         if(this._disponivel === true){ 
             disponivel = "Disponível";
         } else {
@@ -61,6 +82,7 @@ export abstract class Game {
         console.log("*****************************************************");
         console.log("Nome do Jogo: " + this._nome);
         console.log("Gênero: " + genero);
+        console.log("Tipo: " + this._tipo);
         console.log("Disponibilidade: " + disponivel);
         console.log("Preço: " + this._preco.toFixed(2));
         console.log("*****************************************************\n");

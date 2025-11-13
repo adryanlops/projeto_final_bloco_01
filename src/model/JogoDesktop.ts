@@ -2,18 +2,18 @@ import { Game } from "./Game";
 
 export class JogoDesktop extends Game {
 
-    private _requisitosMinimos: { so: string; espaco: string; ram: number };
+    private _requisitosMinimos: { so: string; espaco: number; ram: number };
 
-    constructor(nome: string, preco: number, sistemaOperacional: string, requisitosMinimos: { so: string; espaco: string; ram: number }) {
-        super(nome, preco, sistemaOperacional);
+   constructor(nome: string, preco: number, tipo: number, genero: string, requisitosMinimos: { so: string; espaco: number; ram: number }, disponivel: boolean = true) {
+        super(nome, genero, tipo, preco, disponivel);
         this._requisitosMinimos = requisitosMinimos;
     }
 
-    public get requisitosMinimos(): { so: string; espaco: string; ram: number } {
+    public get requisitosMinimos(): { so: string; espaco: number; ram: number } {
         return this._requisitosMinimos;
     }
     
-    public set requisitosMinimos(requisitosMinimos: { so: string; espaco: string; ram: number }) {
+    public set requisitosMinimos(requisitosMinimos: { so: string; espaco: number; ram: number }) {
         this._requisitosMinimos = requisitosMinimos;
     }
 
