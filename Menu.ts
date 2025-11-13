@@ -52,56 +52,15 @@ export function main() {
                 break;
             case 2:
                 console.log("\n\nBuscar dados do jogo por nome\n\n");
-                
-                keyPress();
+
                 break;
             case 3:
-                console.log("\n\nCadastrar Jogo\n\n");
+                console.log("\n\nComprar jogo por nome\n\n");
 
-                console.log("Digite o Nome do Jogo: ");
-                nome = readlinesync.question("");
-
-                console.log("Digite o Gênero do Jogo: ");
-                genero = readlinesync.question("");
-
-                console.log("\nDigite o tipo da Conta: ");
-                tipo = readlinesync.keyInSelect(tiposJogos, "", { cancel: false }) + 1;
-
-                console.log("\nDigite o Preço do Jogo (R$): ");
-                preco = readlinesync.questionFloat("");
-
-                switch (tipo) {
-                    case 1:
-                        console.log("Digite os requisitos mínimos!\n ");
-                        console.log("Sistema Operacional: ");
-                        let so = readlinesync.question("");
-                        console.log("Espaço em Disco (GB): ");
-                        let espaco = readlinesync.questionInt("");
-                        console.log("Memória RAM (GB): ");
-                        let ram = readlinesync.questionInt("");
-                        requisitosMinimos = { so: so, espaco: espaco, ram: ram };
-                        
-                        game.cadastrar(
-                            new JogoDesktop(nome, preco, tipo, genero,
-                                requisitosMinimos));
-                        break;
-                        
-                    case 2:
-                        console.log("Ainda não temos jogos de console cadastrados.");
-                        break;
-                }
-                
-                keyPress();
                 break;
             case 4:
-                console.log("\n\nComprar jogo por nome\n\n");
-                
-                keyPress();
-                break;
-            case 5:
-                console.log("\n\nAtualizar dados do jogo\n\n");
-                
-                keyPress();
+                console.log("\n\nVender jogo\n\n");
+
                 break;
             default:
                 console.log("\nOpção Inválida!\n");
