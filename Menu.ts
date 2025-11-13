@@ -8,7 +8,7 @@ export function main() {
 
         console.log("*****************************************************");
         console.log("                                                     ");
-        console.log("                     Game-Pede                       ");
+        console.log("                     Gamer-Pede                      ");
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ");
@@ -16,6 +16,7 @@ export function main() {
         console.log("            2 - Buscar jogo por nome                 ");
         console.log("            3 - Comprar jogo                         ");
         console.log("            4 - Vender jogo                          ");
+        console.log("            5 - Atualizar dados do jogo              ");
         console.log("            5 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
@@ -44,6 +45,10 @@ export function main() {
                 break;
             case 4:
                 console.log("\n\nVender jogo\n\n");
+
+                break;
+            case 5:
+                console.log("\n\nAtualizar dados do jogo\n\n");
 
                 break;
             default:
