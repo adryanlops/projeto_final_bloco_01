@@ -19,6 +19,7 @@ export class JogoDesktop extends Game {
 
     public visualizar(): void {
         super.visualizar();
+        console.log("Requisitos Mínimos:\n");
         console.log("Sistema Operacional: " + this._requisitosMinimos.so);
         console.log("CPU: " + this._requisitosMinimos.espaco + " GB");
         console.log("RAM: " + this._requisitosMinimos.ram + " GB");
