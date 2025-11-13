@@ -56,7 +56,7 @@ export function main() {
                 keyPress();
                 break;
             case 3:
-                console.log("\n\nCriar Conta\n\n");
+                console.log("\n\nCadastrar Jogo\n\n");
 
                 console.log("Digite o Nome do Jogo: ");
                 nome = readlinesync.question("");
